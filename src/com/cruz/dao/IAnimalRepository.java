@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cruz.model.Animal;
 
-public interface IAnimal {
+public interface IAnimalRepository {
 	Animal saveAnimal(Animal animal);
 
 	void deleteAnimal(int id);

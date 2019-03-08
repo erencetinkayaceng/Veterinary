@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 
-import com.cruz.dao.IAnimal;
+import com.cruz.dao.IAnimalRepository;
 import com.cruz.model.Animal;
 import com.cruz.util.EntityManagerFactoryUtil;
 
-public class AnimalRepository implements IAnimal {
+public class AnimalRepository implements IAnimalRepository {
 
 	EntityManager entityManager;
 
