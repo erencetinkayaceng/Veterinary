@@ -42,4 +42,9 @@ public class UserManagedBean {
 		return "index?faces-redirect=true";
 	}
 
+	public String delete(int id) {
+		userRepository.deleteUser(id);
+		return "index?faces-redirect=true";
+	}
+
 }

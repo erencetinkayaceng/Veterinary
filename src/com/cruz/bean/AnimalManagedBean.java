@@ -57,4 +57,8 @@ public class AnimalManagedBean {
 		return "index?faces-redirect=true";
 	}
 
+	public String delete(int id) {
+		animalRepository.deleteAnimal(id);
+		return "index?faces-redirect=true";
+	}
 }
