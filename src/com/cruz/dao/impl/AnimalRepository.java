@@ -59,8 +59,8 @@ public class AnimalRepository implements IAnimalRepository {
 	@Override
 	public List<Animal> findAllAnimalByName(String name) {
 		// TODO Auto-generated method stub
-		TypedQuery<Animal> query = entityManager.createQuery("Select a from Animal a WHERE a.name = :name",
-				Animal.class);
+		TypedQuery<Animal> query = entityManager
+				.createQuery("Select a from Animal a WHERE a.name LIKE CONCAT('%',:name,'%')", Animal.class);
 		return query.setParameter("name", name).getResultList();
 	}
 

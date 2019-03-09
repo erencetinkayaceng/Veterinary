@@ -68,7 +68,8 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public List<User> findAllUserByName(String name) {
 		// TODO Auto-generated method stub
-		TypedQuery<User> query = entityManager.createQuery("Select u from User u WHERE u.name = :name", User.class);
+		TypedQuery<User> query = entityManager
+				.createQuery("Select u from User u WHERE u.name LIKE CONCAT('%',:name,'%')", User.class);
 		return query.setParameter("name", name).getResultList();
 	}
 
