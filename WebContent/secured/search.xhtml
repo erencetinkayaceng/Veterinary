@@ -10,7 +10,7 @@
 <h:body>  
 <h:form id="form" class="form-horizontal">  
 <div class="form-group">  
-<div class="col-sm-4"><h:commandButton value="Anasayfa" action="home?faces-redirect=true" class="btn btn-info"   
+<div class="col-sm-4"><h:commandButton value="Home" action="home?faces-redirect=true" class="btn btn-info"   
 style="width: 100px;"></h:commandButton></div>  
 <div  class="col-sm-4">  
 <h2 style="text-align: center">Search User and Animal</h2>  
@@ -26,11 +26,11 @@ validatorMessage="Search Word is required">
 </h:inputText>  
 </div>  
 <div class="col-sm-2">  
-<h:commandButton value="Kullanıcı Ara" action="#{SearchManagedBean.getUserList(SearchManagedBean)}" class="btn btn-success"   
+<h:commandButton value="User" action="#{SearchManagedBean.getUserList(SearchManagedBean)}" class="btn btn-success"   
 style="width: 120px;"></h:commandButton>  
 </div>
 <div class="col-sm-2">  
-<h:commandButton value="Hayvan Ara"  action="#{SearchManagedBean.getAnimalList(SearchManagedBean)}" class="btn btn-success"   
+<h:commandButton value="Animal"  action="#{SearchManagedBean.getAnimalList(SearchManagedBean)}" class="btn btn-success"   
 style="width: 120px;"></h:commandButton>  
 </div>
 </div>
