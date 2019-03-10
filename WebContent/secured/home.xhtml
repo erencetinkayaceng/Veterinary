@@ -14,20 +14,24 @@
     <h:outputLabel class="col-sm-2" value="Welcome " />
     <h:outputLabel class="col-sm-2" value="#{sessionScope['username']} " />
     <div class="col-sm-8">
-     <div class="col-sm-4">
+     <div class="col-sm-2">
     <h:commandButton value="Logout" action="#{LoginManagedBean.logout}" class="btn btn-danger col-md-2"   
 style="width: 80px;"></h:commandButton>  
 </div>
- <div class="col-sm-4">
+ <div class="col-sm-2">
  <h:commandButton value="New Animal" action="newAnimal?faces-redirect=true" class="btn btn-success col-sm-2"   
 style="width: 100px;"></h:commandButton>
 </div>
- <div class="col-sm-4">
+<div class="col-sm-2">
+ <h:commandButton value="Edit İnformation" action="#{UserManagedBean.update(sessionScope['userid'])}" class="btn btn-success col-sm-2"   
+style="width: 120px;"></h:commandButton>
+</div>
+ <div class="col-sm-2">
  <h:commandButton value="Search" action="search?faces-redirect=true" class="btn btn-success col-sm-2"   
 style="width: 80px;"></h:commandButton>
 </div>
 </div>
 </h:form>
-    </div>
+    </div>    
 </body> 
 </html>
