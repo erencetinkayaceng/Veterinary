@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"> 
 
 <h:head>
 <h:outputStylesheet name="/css/bootstrap.min.css"/>
@@ -26,6 +27,10 @@ style="width: 100px;"></h:commandButton>
  <h:commandButton value="Edit İnformation" action="#{UserManagedBean.update(sessionScope['userid'])}" class="btn btn-success col-sm-2"   
 style="width: 120px;"></h:commandButton>
 </div>
+<div class="col-sm-2">
+ <h:commandButton value="All Animal" action="#{AnimalManagedBean.allAnimalList(sessionScope['userid'])}" class="btn btn-success col-sm-2"   
+style="width: 120px;"></h:commandButton>
+</div>
  <div class="col-sm-2">
  <h:commandButton value="Search" action="search?faces-redirect=true" class="btn btn-success col-sm-2"   
 style="width: 80px;"></h:commandButton>
@@ -33,5 +38,43 @@ style="width: 80px;"></h:commandButton>
 </div>
 </h:form>
     </div>    
+    
+<div id="animalList">
+<div class="col-md-10">
+<h:outputLabel class="control-label ">Animals</h:outputLabel>
+<table class="table">
+    		<tr>
+    			<th class="col-sm-1">Name</th>
+    			<th class="col-sm-1">Kind</th>
+    			<th class="col-md-1">Genus</th>
+    			<th class="col-md-1">Age</th>
+    			<th class="col-md-4">Explanation</th>
+    			<th class="col-md-2"></th>
+    		</tr>
+    		<tbody>
+	    		<ui:repeat var="a" value="#{AnimalManagedBean.user.animals}">
+	   			  <tr>
+		    			<td class="order-table-even-row">#{a.name}</td>
+		    			<td class="order-table-even-row">#{a.kind}</td>
+		    			<td class="order-table-even-row">#{a.genus}</td>
+		    			<td class="order-table-even-row">#{a.age}</td>
+		    			<td class="order-table-even-row">#{a.explanation}</td>
+		    			<td class="order-table-even-row">
+		    			   <h:form>
+		    					<div class="col-md-6">		    					
+		    					<h:commandButton value="Edit" action="#{AnimalManagedBean.update(a.id)}" class="btn btn-success"   
+style="width: 80px;"></h:commandButton>
+								</div>														
+								<div class="col-md-6">
+								</div>
+							</h:form>
+		    			</td>
+		    		  </tr>
+	    		</ui:repeat>
+    		</tbody>
+    	</table>
+    	</div>
+<div class="col-sm-1"></div>
+</div>
 </body> 
 </html>

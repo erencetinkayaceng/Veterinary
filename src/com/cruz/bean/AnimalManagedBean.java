@@ -17,8 +17,8 @@ import com.cruz.util.SessionUtils;
 @SessionScoped
 public class AnimalManagedBean {
 
-	Animal animal;
-	User user;
+	private Animal animal;
+	private User user;
 	IAnimalRepository animalRepository;
 	IUserRepository userRepository;
 
@@ -35,6 +35,14 @@ public class AnimalManagedBean {
 
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String save(AnimalManagedBean amb, int userID) {
@@ -61,6 +69,11 @@ public class AnimalManagedBean {
 		if (SessionUtils.getRole().equals("adminRole")) {
 			animalRepository.deleteAnimal(id);
 		}
+		return "/secured/home?faces-redirect=true";
+	}
+
+	public String allAnimalList(int id) {
+		user = userRepository.findUserById(id);
 		return "/secured/home?faces-redirect=true";
 	}
 }
