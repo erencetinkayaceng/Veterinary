@@ -20,4 +20,10 @@
         <managed-bean-class>com.cruz.bean.SearchManagedBean</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+        <managed-bean-name>LoginManagedBean</managed-bean-name>
+        <managed-bean-class>com.cruz.bean.LoginManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+ 
 </faces-config>

@@ -4,8 +4,42 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+<h:outputStylesheet name="/css/bootstrap.min.css"/>  
+</h:head> 
 <body> 
-<h:outputLabel value="Merhaba JAVA .." />
+
+ <h:form id="loginForm" class="form-horizontal">
+ <div class="form-group">  
+<div class="col-sm-3"></div>  
+<div  class="col-sm-9">  
+<h:outputLabel style="font-size: 40px;"  value="Veteriner Takip Uygulaması" />
+</div>  
+</div> 
+<div class="form-group">  
+        <h:outputText value="Username" class="control-label col-sm-4" />
+        <div class="col-sm-4">  
+		<h:inputText id="username" value="#{LoginManagedBean.username}"></h:inputText>
+		<h:message for="username"></h:message>
+		</div>
+		<br></br><br></br>
+		
+		<h:outputText value="Password" class="control-label col-sm-4"/>
+		<div class="col-sm-4">  
+		<h:inputSecret id="password" value="#{LoginManagedBean.password}"></h:inputSecret>
+		<h:message for="password"></h:message>
+		<br></br>
+		<br></br>
+		<div class="col-sm-2"> 
+		<h:commandButton class="btn btn-primary" value="Login" action="#{LoginManagedBean.validateUserLogin}" />
+		</div>
+		<div class="col-sm-2"> 
+		 <h:commandButton class="btn btn-primary" value="New User" action="newUser?faces-redirect=true" />
+		</div>
+		</div>           
+        </div>
+
+    </h:form>
+
 </body> 
 </html>

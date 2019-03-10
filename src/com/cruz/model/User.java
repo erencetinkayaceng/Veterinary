@@ -28,6 +28,7 @@ public class User {
 	private String name;
 	private String phone;
 	private String contact;
+	private Enum<UserRole> role;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Animal> animals = new ArrayList<Animal>();
@@ -37,7 +38,7 @@ public class User {
 	}
 
 	public User(int id, String username, String password, String email, String name, String phone, String contact,
-			List<Animal> animals) {
+			Enum<UserRole> role, List<Animal> animals) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -46,6 +47,7 @@ public class User {
 		this.name = name;
 		this.phone = phone;
 		this.contact = contact;
+		this.role = role;
 		this.animals = animals;
 	}
 
@@ -111,6 +113,14 @@ public class User {
 
 	public void setAnimals(List<Animal> animals) {
 		this.animals = animals;
+	}
+
+	public Enum<UserRole> getRole() {
+		return role;
+	}
+
+	public void setRole(Enum<UserRole> role) {
+		this.role = role;
 	}
 
 }

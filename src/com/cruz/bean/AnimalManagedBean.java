@@ -44,21 +44,21 @@ public class AnimalManagedBean {
 		animals.add(amb.getAnimal());
 		user.setAnimals(animals);
 		userRepository.updateUser(user);
-		return "index?faces-redirect=true";
+		return "/secured/home?faces-redirect=true";
 	}
 
 	public String update(int id) {
 		animal = animalRepository.findAnimalById(id);
-		return "editAnimal?faces-redirect=true";
+		return "/secured/editAnimal?faces-redirect=true";
 	}
 
 	public String update(AnimalManagedBean amb) {
 		animalRepository.updateAnimal(amb.getAnimal());
-		return "index?faces-redirect=true";
+		return "/secured/home?faces-redirect=true";
 	}
 
 	public String delete(int id) {
 		animalRepository.deleteAnimal(id);
-		return "index?faces-redirect=true";
+		return "/secured/home?faces-redirect=true";
 	}
 }

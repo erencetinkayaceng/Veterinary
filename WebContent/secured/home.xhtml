@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<div id="result">
+        Welcome, <span id="username"><h:outputLabel class="successText" value="#{sessionScope['username']}" /></span>
+    <h:form>
+    <h:commandButton value="Logout" action="#{LoginManagedBean.logout}" class="btn btn-success"   
+style="width: 80px;"></h:commandButton>  
+ <h:commandButton value="New Animal" action="newAnimal?faces-redirect=true" class="btn btn-success"   
+style="width: 120px;"></h:commandButton>
+ <h:commandButton value="Search" action="search?faces-redirect=true" class="btn btn-success"   
+style="width: 80px;"></h:commandButton>
+</h:form>
+    </div>
+</body> 
+</html>

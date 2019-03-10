@@ -17,4 +17,14 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <filter>
+  <filter-name>Authentication</filter-name>
+  <filter-class>com.cruz.filter.AuthorizationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>Authentication</filter-name>
+  <url-pattern>/secured/*</url-pattern>
+  </filter-mapping>
+  
+
 </web-app>

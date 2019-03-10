@@ -6,6 +6,7 @@ import javax.faces.bean.SessionScoped;
 import com.cruz.dao.IUserRepository;
 import com.cruz.dao.impl.UserRepository;
 import com.cruz.model.User;
+import com.cruz.model.UserRole;
 
 @ManagedBean
 @SessionScoped
@@ -28,23 +29,25 @@ public class UserManagedBean {
 	}
 
 	public String save(UserManagedBean umb) {
-		userRepository.saveUser(umb.getUser());
-		return "index?faces-redirect=true";
+		User u = umb.getUser();
+		u.setRole(UserRole.standartRole);
+		userRepository.saveUser(u);
+		return "/secured/home?faces-redirect=true";
 	}
 
 	public String update(int id) {
 		user = userRepository.findUserById(id);
-		return "editUser?faces-redirect=true";
+		return "/secured/editUser?faces-redirect=true";
 	}
 
 	public String update(UserManagedBean umb) {
 		userRepository.updateUser(umb.getUser());
-		return "index?faces-redirect=true";
+		return "/secured/home?faces-redirect=true";
 	}
 
 	public String delete(int id) {
 		userRepository.deleteUser(id);
-		return "index?faces-redirect=true";
+		return "/secured/home?faces-redirect=true";
 	}
 
 }
