@@ -65,8 +65,8 @@ validatorMessage="Explanation is required">
 <div class="col-sm-4"></div>  
 <div class="col-sm-4">  
 <div class="col-sm-2">  
-<!-- // TODO userID yetkilendirme işlemi yapılınca sessiondan çekilecek -->
-<h:commandButton value="Save" action="#{AnimalManagedBean.save(AnimalManagedBean,userID)}" class="btn btn-success"   
+
+<h:commandButton value="Save" action="#{AnimalManagedBean.save(AnimalManagedBean,sessionScope['userid'])}" class="btn btn-success"   
 style="width: 80px;"></h:commandButton>  
 </div>  
 <div class="col-sm-1">  

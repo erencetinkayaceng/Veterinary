@@ -36,7 +36,6 @@ public class AnimalManagedBean {
 		this.animal = animal;
 	}
 
-	// TODO userID yetkilendirme işlemi yapılınca sessiondan çekilecek
 	public String save(AnimalManagedBean amb, int userID) {
 		user = userRepository.findUserById(userID);
 		amb.getAnimal().setUser(user);
