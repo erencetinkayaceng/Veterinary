@@ -51,7 +51,7 @@ style="width: 120px;"></h:commandButton>
     		</tr>
     		<tbody>
 	    		<ui:repeat var="u" value="#{SearchManagedBean.users}">
-	   			  <tr>
+	   			  <tr style="background-color: #ffffee">
 		    			<td class="order-table-even-row">#{u.name}</td>
 		    			<td class="order-table-even-row">#{u.username}</td>
 		    			<td class="order-table-even-row">#{u.email}</td>
@@ -69,7 +69,49 @@ style="width: 80px;"></h:commandButton>
 								</div> 								
 							</h:form>
 		    			</td>
+		    		  </tr>		 
+		    		  
+		    		  <tr>
+		    		  <td colspan="6">		    		 
+				    		  <table class="table" style="background-color: #ffffcc;margin-left:10px ">
+				    		  <thead>
+	    						<h:outputLabel class="control-label" value="#{u.name}'s animals"></h:outputLabel>
+				    	      </thead>
+				    	      <tr>
+				    			<th class="col-sm-1">Name</th>
+				    			<th class="col-sm-1">Kind</th>
+				    			<th class="col-md-1">Genus</th>
+				    			<th class="col-md-1">Age</th>
+				    			<th class="col-md-4">Explanation</th>
+				    			<th class="col-md-2"></th>
+			    			 </tr>
+				    		   <ui:repeat var="a" value="#{u.animals}">	
+				    		  <tr>
+				    		  	<td class="order-table-even-row">#{a.name}</td>
+				    			<td class="order-table-even-row">#{a.kind}</td>
+				    			<td class="order-table-even-row">#{a.genus}</td>
+				    			<td class="order-table-even-row">#{a.age}</td>
+				    			<td class="order-table-even-row">#{a.explanation}</td>
+				    			<td class="order-table-even-row">
+				    			   <h:form>
+				    					<div class="col-md-6"><h:commandButton value="Edit" action="#{AnimalManagedBean.update(a.id)}" class="btn btn-success"   
+		style="width: 80px;"></h:commandButton> </div>														
+										<div class="col-md-6">
+										<c:if test="#{sessionScope['userrole'] == 'adminRole'}">
+										<h:commandButton value="Delete" action="#{AnimalManagedBean.delete(a.id)}" class=" btn btn-danger"   
+		style="width: 80px;"></h:commandButton>
+										</c:if>
+										</div>
+									</h:form>
+									
+				    			</td>
+				    		  </tr>
+				    		  </ui:repeat>
+				    		  </table>		    		  	
+		    		  </td>
 		    		  </tr>
+		    		     	
+    	   
 	    		</ui:repeat>
     		</tbody>
     	</table>
