@@ -30,7 +30,7 @@ public class SessionUtils {
 	public static String getRole() {
 		HttpSession session = getSession();
 		if (session != null) {
-			return (String) session.getAttribute("userrole");
+			return session.getAttribute("userrole").toString();
 		} else {
 			return null;
 		}

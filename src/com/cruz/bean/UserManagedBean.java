@@ -7,6 +7,7 @@ import com.cruz.dao.IUserRepository;
 import com.cruz.dao.impl.UserRepository;
 import com.cruz.model.User;
 import com.cruz.model.UserRole;
+import com.cruz.util.SessionUtils;
 
 @ManagedBean
 @SessionScoped
@@ -46,7 +47,9 @@ public class UserManagedBean {
 	}
 
 	public String delete(int id) {
-		userRepository.deleteUser(id);
+		if (SessionUtils.getRole().equals("adminRole")) {
+			userRepository.deleteUser(id);
+		}
 		return "/secured/home?faces-redirect=true";
 	}
 

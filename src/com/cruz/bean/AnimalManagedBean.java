@@ -11,6 +11,7 @@ import com.cruz.dao.impl.AnimalRepository;
 import com.cruz.dao.impl.UserRepository;
 import com.cruz.model.Animal;
 import com.cruz.model.User;
+import com.cruz.util.SessionUtils;
 
 @ManagedBean
 @SessionScoped
@@ -57,7 +58,9 @@ public class AnimalManagedBean {
 	}
 
 	public String delete(int id) {
-		animalRepository.deleteAnimal(id);
+		if (SessionUtils.getRole().equals("adminRole")) {
+			animalRepository.deleteAnimal(id);
+		}
 		return "/secured/home?faces-redirect=true";
 	}
 }
