@@ -7,6 +7,7 @@ import com.cruz.dao.IUserRepository;
 import com.cruz.dao.impl.UserRepository;
 import com.cruz.model.User;
 import com.cruz.model.UserRole;
+import com.cruz.util.EncryptPasswordUtil;
 import com.cruz.util.SessionUtils;
 
 @ManagedBean
@@ -32,6 +33,12 @@ public class UserManagedBean {
 	public String save(UserManagedBean umb) {
 		User u = umb.getUser();
 		u.setRole(UserRole.standartRole);
+		String encryptpwd = EncryptPasswordUtil.encrypt(u.getPassword());
+		if (!encryptpwd.equals("error")) {
+			u.setPassword(encryptpwd);
+		} else {
+			return "newUser?faces-redirect=true";
+		}
 		userRepository.saveUser(u);
 		return "/secured/home?faces-redirect=true";
 	}

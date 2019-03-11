@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.cruz.dao.IUserRepository;
 import com.cruz.dao.impl.UserRepository;
 import com.cruz.model.User;
+import com.cruz.util.EncryptPasswordUtil;
 import com.cruz.util.SessionUtils;
 
 @ManagedBean
@@ -53,6 +54,12 @@ public class LoginManagedBean {
 
 		try {
 			user = userRepository.findUserByUserName(username);
+			String encryptpwd = EncryptPasswordUtil.encrypt(password);
+			if (!encryptpwd.equals("error")) {
+				password = encryptpwd;
+			} else {
+				new Exception();
+			}
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
 					"Incorrect Username and Passowrd", "Please enter correct username and Password"));
